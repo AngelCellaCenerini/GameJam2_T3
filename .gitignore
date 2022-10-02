@@ -60,3 +60,10 @@ crashlytics-build.properties
 
 *.meta
 *.log
+GameJam2_Team3/Library/ArtifactDB
+GameJam2_Team3/Library/LastSceneManagerSetup.txt
+GameJam2_Team3/Library/SourceAssetDB
+GameJam2_Team3/Logs/AssetImportWorker0.log
+GameJam2_Team3/Logs/shadercompiler-AssetImportWorker0.log
+GameJam2_Team3/Logs/shadercompiler-UnityShaderCompiler.exe0.log
+GameJam2_Team3/Temp/UnityLockfile
