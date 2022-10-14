@@ -24,6 +24,10 @@ Material:
         m_Texture: {fileID: 8400000, guid: c45f5e337e8360f4e9d41e034f8d02f2, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - Texture2D_AgedPixelCameraInput:
+        m_Texture: {fileID: 8400000, guid: c45f5e337e8360f4e9d41e034f8d02f2, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
