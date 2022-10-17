@@ -21,4 +21,13 @@ public class MoveObject : MonoBehaviour
         isMoved = true;
         anim.SetBool("isMoved", true);
     }
+
+    public void Move()
+    {
+        // Register Mouse Input
+        Debug.Log("clicked!");
+        // Move Object
+        isMoved = true;
+        anim.SetBool("isMoved", true);
+    }
 }

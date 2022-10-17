@@ -9,6 +9,8 @@ public class CameraSwitcherV2 : MonoBehaviour
 
     int currentCam;
 
+    public Camera CurrentCamera => Cameras[currentCam].GetComponent<Camera>();
+
     // Start is called before the first frame update
     void Start()
     {

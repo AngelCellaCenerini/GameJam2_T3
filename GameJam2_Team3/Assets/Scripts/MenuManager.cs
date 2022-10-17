@@ -15,7 +15,7 @@ public class MenuManager : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("ArtTestScene");
+        SceneManager.LoadScene("GameplayScene");
     }
 
     public void LoadOptionsMenu()

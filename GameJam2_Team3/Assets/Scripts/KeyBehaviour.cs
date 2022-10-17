@@ -5,7 +5,7 @@ using UnityEngine;
 public class KeyBehaviour : MonoBehaviour
 {
     // External References
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
         // Register Mouse Input
         Debug.Log("clicked!");
