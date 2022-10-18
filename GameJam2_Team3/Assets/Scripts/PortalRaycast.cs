@@ -17,19 +17,19 @@ public class PortalRaycast : MonoBehaviour
         {
             RaycastHit hit;
             Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
-            Debug.DrawLine(ray.origin, ray.origin + ray.direction * 10, Color.red, 10, false);
-            Debug.Log($"mouse {Input.mousePosition.x},{Input.mousePosition.y}");
-            Debug.Log(ray);
+            //Debug.DrawLine(ray.origin, ray.origin + ray.direction * 10, Color.red, 10, false);
+            //Debug.Log($"mouse {Input.mousePosition.x},{Input.mousePosition.y}");
+            //Debug.Log(ray);
             // do we hit our portal plane?
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.collider.gameObject);
+                //Debug.Log(hit.collider.gameObject);
                 Camera portalCamera = CameraSwitcherV2.CurrentCamera;
                 
 
                 var localPoint = hit.textureCoord;
                 //Debug.Log(hit);
-                Debug.Log($"At {localPoint.x},{localPoint.y}");
+               // Debug.Log($"At {localPoint.x},{localPoint.y}");
                 // convert the hit texture coordinates into camera coordinates
                 Ray portalRay = portalCamera.ScreenPointToRay(new Vector2(localPoint.x * portalCamera.pixelWidth, localPoint.y * portalCamera.pixelHeight));
                 RaycastHit portalHit;
@@ -38,7 +38,7 @@ public class PortalRaycast : MonoBehaviour
                 {
                     var trigger = portalHit.collider.gameObject.GetComponent<EventTrigger>();
                     trigger?.OnPointerClick(default);
-                    Debug.Log(portalHit.collider.gameObject);
+                   // Debug.Log(portalHit.collider.gameObject);
                 }
             }
         }

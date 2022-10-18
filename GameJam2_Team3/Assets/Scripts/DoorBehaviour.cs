@@ -7,7 +7,7 @@ public class DoorBehaviour : MonoBehaviour
     // External References
     public GameObject key;
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
        if (!key.activeSelf)
        {
