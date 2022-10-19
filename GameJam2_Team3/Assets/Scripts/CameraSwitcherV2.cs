@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class CameraSwitcherV2 : MonoBehaviour
 {
     // Variables
@@ -11,11 +12,15 @@ public class CameraSwitcherV2 : MonoBehaviour
 
     public Camera CurrentCamera => Cameras[currentCam].GetComponent<Camera>();
 
+    public AudioClip SwitchSound;
+    AudioSource SwitchSFX;
+
     // Start is called before the first frame update
     void Start()
     {
         currentCam = 0;
         setCam(currentCam);
+        SwitchSFX = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,6 +29,7 @@ public class CameraSwitcherV2 : MonoBehaviour
         // Check Input
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            SwitchSFX.PlayOneShot(SwitchSound, 1f);
             toggleCam();
         }
     }
