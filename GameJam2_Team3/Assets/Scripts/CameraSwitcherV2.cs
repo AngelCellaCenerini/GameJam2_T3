@@ -27,10 +27,15 @@ public class CameraSwitcherV2 : MonoBehaviour
     void Update()
     {
         // Check Input
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             SwitchSFX.PlayOneShot(SwitchSound, 1f);
-            toggleCam();
+            toggleCamBack();
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            SwitchSFX.PlayOneShot(SwitchSound, 1f);
+            toggleCamForward();
         }
     }
 
@@ -53,13 +58,25 @@ public class CameraSwitcherV2 : MonoBehaviour
     }
 
     //Triggers camera switch in array
-    public void toggleCam()
+    public void toggleCamForward()
     {
         currentCam++;
 
         //Resets camera array number back to 0 at the end of the array
         if (currentCam > Cameras.Length - 1)
             currentCam = 0;
+        setCam(currentCam);
+    }
+
+    //Triggers camera switch in array
+    public void toggleCamBack()
+    {
+        Debug.Log(currentCam);
+        currentCam--;
+
+        //Resets camera array number back to 0 at the end of the array
+        if (currentCam < 0)
+            currentCam = Cameras.Length - 1;
         setCam(currentCam);
     }
 }
