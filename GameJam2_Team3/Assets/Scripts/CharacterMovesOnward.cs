@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharacterMovesOnward : MonoBehaviour
 {
+
     public Transform objectPosition;
-    public Transform victimPosition;
     public GameObject victimInteractedWith;
+
 
     public float moving;
 
@@ -17,21 +20,18 @@ public class CharacterMovesOnward : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     
+
     }
 
     // Update is called once per frame
     void Update()
     {
         //When the key is grabbed, move the character and play animation
-        if (victimInteractedWith.activeSelf == true)
+        if (victimInteractedWith.activeSelf == false)
         {
-            
-        } else if (victimInteractedWith.activeSelf == false)
-        {
-            Vector3 v = victimPosition.position;
+            Vector3 v = transform.position;
             Vector3 o = objectPosition.position;
-            victimPosition.position = Vector3.Lerp(v, o, moving);
+            transform.position = Vector3.Lerp(v, o, moving);
         }
     }
 }
