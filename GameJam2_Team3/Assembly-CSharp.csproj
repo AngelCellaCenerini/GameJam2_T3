@@ -54,12 +54,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraSwitcherV2.cs" />
+    <Compile Include="Assets\Scripts\MouseOverlayScript.cs" />
     <Compile Include="Assets\Scripts\MenuManager.cs" />
     <Compile Include="Assets\Scripts\PortalRaycast.cs" />
     <Compile Include="Assets\Scripts\VolumeControl.cs" />
     <Compile Include="Assets\Scripts\FullScreenToggle.cs" />
     <Compile Include="Assets\Scripts\CharacterMovesOnward.cs" />
     <Compile Include="Assets\Scripts\EventsTrigger.cs" />
+    <Compile Include="Assets\Scripts\MouseSecurityOverlayScript.cs" />
     <Compile Include="Assets\Scripts\DoorBehaviour.cs" />
     <Compile Include="Assets\Scripts\CameraSwitcher.cs" />
     <Compile Include="Assets\Scripts\KeyBehaviour.cs" />
@@ -67,7 +69,6 @@
     <Compile Include="Assets\Scripts\BlinkingText.cs" />
     <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\DoorStateMachine.cs" />
-    <Compile Include="Assets\Scripts\MouseOverlayScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
