@@ -18,11 +18,16 @@ public class KeyBehaviour : MonoBehaviour
     // NPC
     public GameObject npc;
     public NavMeshAgent navMeshAgent;
+    // Animation
+    public bool isWalking = false;
+    public Animator characterAnim;
+
 
     void Awake()
     {
         // Access NPC
         navMeshAgent = npc.GetComponent<NavMeshAgent>();
+        characterAnim = npc.GetComponent<Animator>();
         // Load SFX
         CollectedSFX = GetComponent<AudioSource>();
         // Default Status
@@ -34,8 +39,26 @@ public class KeyBehaviour : MonoBehaviour
         // Check if object is selected
         if (isSelected)
         {
+            // Set Destination
             navMeshAgent.SetDestination(Collectible.position);
             StartCoroutine(ExecuteAfterTime(2));
+            // Trigger Animation
+            if (!isWalking)
+            {
+                isWalking = true;
+                characterAnim.SetBool("isWalking", true);
+            }
+
+            // CheckNPC();
+        }
+
+        if (!key.activeSelf)
+        {
+            // Stop Walking
+            isWalking = false;
+            characterAnim.SetBool("isWalking", false);
+            // Play SFX
+            //CollectedSFX.PlayOneShot(Collectible_SFX, 0.5f);
         }
     }
 
@@ -55,12 +78,26 @@ public class KeyBehaviour : MonoBehaviour
         {
             // "Collect"
             key.gameObject.SetActive(false);
+
             // Trigger Sound Effect
             if (!key.activeSelf)
             {
                 // Play SFX
                 // CollectedSFX.PlayOneShot(Collectible_SFX, 0.5f);
             }
+        }
+    }
+
+    void CheckNPC()
+    {
+        // Toggle Animation
+        if (isWalking)
+        {
+            characterAnim.SetBool("isWalking", true);
+        }
+        else
+        {
+            characterAnim.SetBool("isWalking", false);
         }
     }
 }
