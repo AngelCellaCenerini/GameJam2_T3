@@ -21,6 +21,9 @@ public class KeyBehaviour : MonoBehaviour
     // Animation
     public bool isWalking = false;
     public Animator characterAnim;
+    // Footsteps SFX
+    // public AudioClip Steps_SFX;
+    AudioSource StepsSFX;
 
 
     void Awake()
@@ -28,8 +31,9 @@ public class KeyBehaviour : MonoBehaviour
         // Access NPC
         navMeshAgent = npc.GetComponent<NavMeshAgent>();
         characterAnim = npc.GetComponent<Animator>();
-        // Load SFX
         CollectedSFX = GetComponent<AudioSource>();
+        // Load SFX
+        StepsSFX = npc.GetComponent<AudioSource>();
         // Default Status
         isSelected = false;
     }
@@ -47,9 +51,9 @@ public class KeyBehaviour : MonoBehaviour
             {
                 isWalking = true;
                 characterAnim.SetBool("isWalking", true);
+                // Play SFX
+                StepsSFX.Play();
             }
-
-            // CheckNPC();
         }
 
         if (!key.activeSelf)
@@ -59,6 +63,9 @@ public class KeyBehaviour : MonoBehaviour
             characterAnim.SetBool("isWalking", false);
             // Play SFX
             //CollectedSFX.PlayOneShot(Collectible_SFX, 0.5f);
+            // Play SFX
+            StepsSFX.Stop();
+            StartCoroutine(ResetLife(1));
         }
     }
 
@@ -88,16 +95,11 @@ public class KeyBehaviour : MonoBehaviour
         }
     }
 
-    void CheckNPC()
+    IEnumerator ResetLife(float time)
     {
-        // Toggle Animation
-        if (isWalking)
-        {
-            characterAnim.SetBool("isWalking", true);
-        }
-        else
-        {
-            characterAnim.SetBool("isWalking", false);
-        }
+        yield return new WaitForSeconds(time);
+
+        // Execute after delay
+        Destroy(this);
     }
 }
