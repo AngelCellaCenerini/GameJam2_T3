@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class DeactivateText : MonoBehaviour
 {
-    public void (){
+    public void start(){
+    
+    }
+    public void update(){
+    
+    }
 
 }
