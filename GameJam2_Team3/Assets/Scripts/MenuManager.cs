@@ -14,9 +14,9 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+        Video.Prepare();
         Options_Menu.SetActive(false);
         IntroVid_Menu.SetActive(false);
-        Video.Prepare();
     }
 
     public void PlayGame()
