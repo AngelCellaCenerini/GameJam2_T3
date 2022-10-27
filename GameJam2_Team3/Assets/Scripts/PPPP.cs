@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 [RequireComponent(typeof(AudioSource))]
 
-public class POP : MonoBehaviour
+public class PPPP : MonoBehaviour
 {
     // External References
     public AudioClip Collectible_SFX;
@@ -14,7 +14,7 @@ public class POP : MonoBehaviour
     // Key Object
     public Transform Collectible;
     public GameObject key;
-    public AppearKey aK;
+    public KeyAppear aK;
     public GameObject StateB;
 
     // NPC
@@ -46,26 +46,26 @@ public class POP : MonoBehaviour
         {
             // Check if object is selected
             if (isSelected)
-        {
-            Debug.Log("starting");
-
-            // Set Destination
-            navMeshAgent.SetDestination(Collectible.position);
-
-            StartCoroutine(ExecuteAfterTime(2));
-            // Trigger Animation
-            if (!isWalking)
             {
+                Debug.Log("starting");
 
-                isWalking = true;
-                Debug.Log("walk");
+                // Set Destination
+                navMeshAgent.SetDestination(Collectible.position);
 
-                characterAnim.SetBool("isWalking", true);
-                // Play SFX
-                StepsSFX.Play();
+                StartCoroutine(ExecuteAfterTime(2));
+                // Trigger Animation
+                if (!isWalking)
+                {
+
+                    isWalking = true;
+                    Debug.Log("walk");
+
+                    characterAnim.SetBool("isWalking", true);
+                    // Play SFX
+                    StepsSFX.Play();
+                }
             }
-        }
-        
+
             if (!key.activeSelf)
             {
                 // Stop Walking
@@ -80,13 +80,13 @@ public class POP : MonoBehaviour
             }
         }
 
-        
+
     }
 
     public void OnMouseDown()
     {
         // Collect Object
-        if (StateB.activeInHierarchy)
+        if (!StateB.activeInHierarchy)
         {
             isSelected = true;
             Debug.Log("clicked");
@@ -122,6 +122,6 @@ public class POP : MonoBehaviour
         Destroy(aK);
         key.gameObject.SetActive(false);
         Destroy(this);
-        
+
     }
 }

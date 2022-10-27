@@ -79,6 +79,8 @@
     <Compile Include="Assets\Scripts\EndGameScript.cs" />
     <Compile Include="Assets\Scripts\KeyBehaviour1.cs" />
     <Compile Include="Assets\Scripts\POP.cs" />
+    <Compile Include="Assets\Scripts\PPPP.cs" />
+    <Compile Include="Assets\Scripts\KeyAppear.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
