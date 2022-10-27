@@ -14,7 +14,7 @@ public class TriggerEnding : MonoBehaviour
     {
         if (roomDoor.activeSelf)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 }
