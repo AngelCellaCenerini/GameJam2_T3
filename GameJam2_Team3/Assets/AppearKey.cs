@@ -6,11 +6,13 @@ public class AppearKey : MonoBehaviour
 {
     public GameObject key;
     public GameObject cabinet;
+    public bool go;
 
     // Start is called before the first frame update
     void Start()
     {
         key.SetActive(false);
+        go = false;
     }
 
     // Update is called once per frame
@@ -19,6 +21,7 @@ public class AppearKey : MonoBehaviour
         if (cabinet.activeSelf)
         {
             key.SetActive(true);
+            go = true;
         }
         else
         {
