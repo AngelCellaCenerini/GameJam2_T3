@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 [RequireComponent(typeof(AudioSource))]
 
-public class KeyBehaviour : MonoBehaviour
+public class BRUH : MonoBehaviour
 {
     // External References
     public AudioClip Collectible_SFX;
@@ -14,7 +14,6 @@ public class KeyBehaviour : MonoBehaviour
     // Key Object
     public Transform Collectible;
     public GameObject key;
-    public GameObject StateB;
 
     // NPC
     public GameObject npc;
@@ -39,12 +38,11 @@ public class KeyBehaviour : MonoBehaviour
         isSelected = false;
     }
 
-   void Update()
+    void Update()
     {
         // Check if object is selected
         if (isSelected)
         {
-            Debug.Log("starting");
 
             // Set Destination
             navMeshAgent.SetDestination(Collectible.position);
@@ -53,10 +51,7 @@ public class KeyBehaviour : MonoBehaviour
             // Trigger Animation
             if (!isWalking)
             {
-
                 isWalking = true;
-                Debug.Log("walk");
-
                 characterAnim.SetBool("isWalking", true);
                 // Play SFX
                 StepsSFX.Play();
@@ -79,12 +74,8 @@ public class KeyBehaviour : MonoBehaviour
     public void OnMouseDown()
     {
         // Collect Object
-        if (StateB.activeInHierarchy)
-        {
-            isSelected = true;
-            Debug.Log("clicked");
-        }
-        
+        isSelected = true;
+        Debug.Log("clicked");
     }
 
     IEnumerator ExecuteAfterTime(float time)
@@ -115,3 +106,4 @@ public class KeyBehaviour : MonoBehaviour
         Destroy(this);
     }
 }
+
